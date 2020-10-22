@@ -22,9 +22,7 @@ public:
         onPath[node]=true;
         
         for(int i=0;i<graph[node].size();i++){
-            if(onPath[graph[node][i]])
-                return true;
-            if(!visited[graph[node][i]] && dfs_cycle(graph,visited,onPath,graph[node][i], res)){
+            if(onPath[graph[node][i]] || (!visited[graph[node][i]] && dfs_cycle(graph,visited,onPath,graph[node][i], res))){
                 return true;
             }
         }
