@@ -10,8 +10,7 @@ class Solution(object):
         ret = [-h[0][0]] 
         
         for i in range(k, len(nums)):
-            h.append((-nums[i], i))
-            heapq.heapify(h)
+            heapq.heappush(h, (-nums[i], i))
             
             while True:
                 root = heapq.heappop(h)
@@ -19,6 +18,6 @@ class Solution(object):
                     break
                 
             ret.append(-root[0])
-            h.append(root)
+            heapq.heappush(h, root)
         
         return ret
